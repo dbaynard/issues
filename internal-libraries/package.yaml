@@ -1,0 +1,20 @@
+name:                internal-libraries
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/dbaynard/internal-libraries#readme
+license:             BSD3
+author:              David Baynard
+maintainer:          davidbaynard@gmail.com
+copyright:           '2017'
+category:            test
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+
+executables:
+  internal-libraries:
+    source-dirs:      src
+    main:             Main.hs
