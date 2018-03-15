@@ -14,7 +14,22 @@ extra-source-files:
 dependencies:
   - base >= 4.7 && < 5
 
+library:
+  source-dirs: src
+  exposed-modules:
+  - Lib
+  dependencies:
+  - internal
+
+internal-libraries:
+  internal:
+    source-dirs: internal
+    exposed-modules:
+    - Internal
+
 executables:
   internal-libraries:
-    source-dirs:      src
+    source-dirs:      app
     main:             Main.hs
+    dependencies:
+    - internal-libraries
