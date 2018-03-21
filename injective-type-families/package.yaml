@@ -1,0 +1,20 @@
+name:                injective-type-families
+version:             0.1.0.0
+#synopsis:
+#description:
+homepage:            https://github.com/dbaynard/injective-type-families#readme
+license:             BSD3
+author:              David Baynard
+maintainer:          davidbaynard@gmail.com
+copyright:           '2018'
+category:            test
+extra-source-files:
+- README.md
+
+dependencies:
+  - base >= 4.7 && < 5
+
+executables:
+  injective-type-families:
+    source-dirs:      src
+    main:             Main.hs

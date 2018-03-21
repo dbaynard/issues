@@ -1,0 +1,30 @@
+-- This file has been generated from package.yaml by hpack version 0.27.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: bff1f669701714fc5a9b14acd863527aaaaefea7afb1d4ad62474b6a0d873e4a
+
+name:           injective-type-families
+version:        0.1.0.0
+category:       test
+homepage:       https://github.com/dbaynard/injective-type-families#readme
+author:         David Baynard
+maintainer:     davidbaynard@gmail.com
+copyright:      2018
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    README.md
+
+executable injective-type-families
+  main-is: Main.hs
+  other-modules:
+      Paths_injective_type_families
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
