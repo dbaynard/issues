@@ -33,6 +33,16 @@ type family Injective3 a = r | r -> a where
   Injective3 Int  = Injective1 Bool
   Injective3 Bool = Char
 
+type family NonInjective4 a where
+  -- NonInjective4 a ~ Char ⇔ NonInjective3 a ~ NonInjective1 Bool ⇔ a ~ Int
+  NonInjective4 Int  = Injective1 Bool
+  NonInjective4 Bool = ()
+
+type family Injective4 a = r | r -> a where
+  -- Injective4 a ~ Char ⇔ Injective3 a ~ Injective1 Bool ⇔ a ~ Int
+  Injective4 Int  = Injective1 Bool
+  Injective4 Bool = ()
+
 main :: IO ()
 main = do
   putStrLn "hello world"
