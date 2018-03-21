@@ -1,0 +1,54 @@
+-- This file has been generated from package.yaml by hpack version 0.27.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e2247277608877ba4abe74ee652124a5b5890454722ba5977060b5af4a8a548d
+
+name:           internal-libraries
+version:        0.1.0.0
+category:       test
+homepage:       https://github.com/dbaynard/internal-libraries#readme
+author:         David Baynard
+maintainer:     davidbaynard@gmail.com
+copyright:      2017
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 2.0
+
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_internal_libraries
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , internal
+  default-language: Haskell2010
+
+library internal
+  exposed-modules:
+      Internal
+  other-modules:
+      Paths_internal_libraries
+  hs-source-dirs:
+      internal
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable internal-libraries
+  main-is: Main.hs
+  other-modules:
+      Paths_internal_libraries
+  hs-source-dirs:
+      app
+  build-depends:
+      base >=4.7 && <5
+    , internal-libraries
+  default-language: Haskell2010
