@@ -21,7 +21,17 @@ type family Injective1 a = r | r -> a where
 
 type family Injective2 a = r | r -> a where
   -- Injective2 a ~ Char ⇔ Injective2 a ~ Injective1 Bool ⇔ a ~ Int
-  Injective2 Int = Injective1 Bool
+  Injective2 Int  = Injective1 Bool
+
+type family NonInjective3 a where
+  -- NonInjective3 a ~ Char ⇐ (NonInjective3 a ~ Injective1 Bool ⇔ a ~ Int) ^ a ~ Bool
+  NonInjective3 Int  = Injective1 Bool
+  NonInjective3 Bool = Char
+
+type family Injective3 a = r | r -> a where
+  -- VIOLATION Injective3 a ~ Char ⇐ (Injective3 a ~ Injective1 Bool ⇔ a ~ Int) ^ a ~ Bool
+  Injective3 Int  = Injective1 Bool
+  Injective3 Bool = Char
 
 main :: IO ()
 main = do

@@ -20,3 +20,30 @@ In the error, `Injective1` should be allowed on the RHS as it is injective, in a
 24 |   Injective2 Int = Injective1 Bool
    |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ```
+
+For a type family that isn’t actually injective but is defined as injective, it does appear to (correctly) identify the non-injectivity, too.
+
+```
+/$HOME/Projects/issues/injective-type-families/src/Main.hs:33:3: error:
+    • Type family equation violates injectivity annotation.
+      RHS of injective type family equation cannot be a type family:
+        Injective3 Int = Injective1 Bool
+          -- Defined at /$HOME/Projects/issues/injective-type-families/src/Main.hs:33:3
+    • In the equations for closed type family ‘Injective3’
+      In the type family declaration for ‘Injective3’
+   |
+33 |   Injective3 Int  = Injective1 Bool
+   |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/$HOME/Projects/issues/injective-type-families/src/Main.hs:33:3: error:
+    • Type family equations violate injectivity annotation:
+        Injective3 Int = Injective1 Bool
+          -- Defined at /$HOME/Projects/issues/injective-type-families/src/Main.hs:33:3
+        Injective3 Bool = Char
+          -- Defined at /$HOME/Projects/issues/injective-type-families/src/Main.hs:34:3
+    • In the equations for closed type family ‘Injective3’
+      In the type family declaration for ‘Injective3’
+   |
+33 |   Injective3 Int  = Injective1 Bool
+   |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```
